@@ -12,7 +12,7 @@ import { stampEveryPage } from "./stamp.js";
 import { cryptographicallySign } from "./sign.js";
 
 const app = express();
-app.set("trust proxy", false);
+app.set("trust proxy", 1);
 
 const PORT = Number(process.env.PORT || 3000);
 const MAX_PDF_MB = Number(process.env.MAX_PDF_MB || 20);
