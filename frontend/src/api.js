@@ -9,5 +9,5 @@ export async function signPdf({ file }) {
   const blob = await res.blob();
   const cd = res.headers.get("content-disposition") || "";
   const m = cd.match(/filename="([^"]+)"/);
-  return { blob, filename: m?.[1] || "[Signed].pdf" };
+  return { blob, filename: m?.[1] || " signed.pdf" };
 }
