@@ -21,7 +21,13 @@ const RATE_LIMIT_PER_MIN = Number(process.env.RATE_LIMIT_PER_MIN || 30);
 const supabase = makeSupabase();
 
 app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } }));
-app.use(cors({ origin: true, methods: ["GET", "POST"] }));
+app.use(
+  cors({
+    origin: true,
+    methods: ["GET", "POST"],
+    exposedHeaders: ["Content-Disposition"], // ✅ IMPORTANT
+  })
+);
 app.use(
   rateLimit({
     windowMs: 60_000,
