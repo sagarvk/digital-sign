@@ -1,3 +1,4 @@
+const API_BASE = import.meta.env.VITE_API_BASE || "";
 export async function signPdf({ file }) {
   const fd = new FormData();
   fd.append("pdf", file);
